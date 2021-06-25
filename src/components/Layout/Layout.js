@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head';
 import styles from './Layout.module.css';
-import Link from 'next/Link'
+import Link from 'next/link'
 import { Brightness6Rounded } from '@material-ui/icons';
 
 export default function Layout({ children, title }) {
