@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import styles from './Country.module.css';
+import Image from 'next/Image';
 
 const getCountry = async (id) => {
     const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
@@ -20,7 +21,7 @@ export default function Country({ country }) {
 
     useEffect(() => {
         getBorders();
-    }, [])
+    })
 
     console.log({ borders })
     return (
@@ -28,7 +29,7 @@ export default function Country({ country }) {
             <div className={styles.container}>
                 <div className={styles.container_left}>
                     <div className={styles.overview_panel}>
-                        <img src={country.flag} alt={country.name}></img>
+                        <Image src={country.flag} alt={country.name}></Image>
                         <h1 className={styles.overview_name}>{country.name}</h1>
                         <div className={styles.overview_region}>{country.region}</div>
                         <div className={styles.overview_numbers}>
@@ -79,8 +80,8 @@ export default function Country({ country }) {
                         <div className={styles.details_panel_borders}>
                             <div className={styles.details_panel_borders_label}>Neihbouring Countries</div>
                             <div className={styles.details_panel_borders_container}>
-                                {borders.map(({ flag, name }) => <div className={styles.details_panel_borders_country}>
-                                    <img src={flag} alt={name} />
+                                {borders.map(({ flag, name }) => <div className={styles.details_panel_borders_country} key={name}>
+                                    <Image src={flag} alt={name} />
                                     <div className={styles.details_panel_borders_name}>{name}</div>
                                 </div>)}
                             </div>
