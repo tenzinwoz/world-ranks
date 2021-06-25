@@ -2,7 +2,7 @@ import { KeyboardArrowDownRounded, KeyboardArrowUpRounded } from '@material-ui/i
 import React, { useState } from 'react';
 import styles from './CountriesTable.module.css';
 import Link from 'next/link';
-import Image from 'next/Image'
+import Image from 'next/image'
 
 const orderBy = (countries, value, direction) => {
     if (direction === 'asc') {
